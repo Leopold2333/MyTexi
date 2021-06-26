@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>客户主页</title>
+        <script src="../static/javascript/http_ajax.aspnetcdn.com_ajax_jquery_jquery-3.5.1.js"></script>
+        <script src="../static/javascript/customerMainJS.js" defer></script>
+    </head>
+    <body>
+        <div>用户ID<span th:text="${session.loggedId}" id="userId"></span></div>
+        <div>用户名<span th:text="${session.userName}"></span></div>
+        <div>用户状态<span id="state" th:text="${session.state}"></span></div>
+        <div>用户积分<span th:text="${session.userScore}"></span></div>
+        <div><button id="create" th:hidden="${session.state} != 0">创建订单</button></div>
+        <div><button id="lookUp" th:hidden="${session.state} == 0">查看订单</button></div>
+        <div><button id="arrive" th:hidden="${session.state} != 4">确认到达</button></div>
+        <div id="finishDiv" th:hidden="${session.state} != 3">
+            <span>费用<span id="cost">0</span></span>
+            <span>评论<input id="comment"></span>
+            <span>评价(0-5)<input id="score" number value="3" max="5" min="0"></span>
+            <button id="finish">完成订单</button>
+        </div>
+        <div><button id="cancel" th:hidden="${session.state == 0 || session.state == 3}">取消订单</button></div>
+        <div><button id="quit">退出</button></div>
+    </body>
+</html>

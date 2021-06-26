@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>建立订单</title>
+        <script src="../static/javascript/http_ajax.aspnetcdn.com_ajax_jquery_jquery-3.5.1.js"></script>
+        <script src="../static/javascript/createOrderJS.js" defer></script>
+    </head>
+    <body>
+        <div>发起人<input id="owner" th:value="${session.loggedId}" readonly></div>
+        <div>起始位置<input id="start_region" type="number" value="0"></div>
+        <div>结束位置<input id="end_region" type="number" value="0"></div>
+        <div><button id="put">提交</button></div>
+    </body>
+</html>

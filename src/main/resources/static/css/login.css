@@ -1,0 +1,33 @@
+body
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#content
+{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+div#items > div{
+    font-size: 22px;
+    text-align: center;
+    width: 300px;
+    margin: 15px 0px 15px 0px;
+
+}
+
+div#title {
+    font-size: 34px;
+    text-shadow: 4px 4px 5px rgb(130, 130, 130);
+}
+
+div#typeDiv{
+    align-itemst: end;
+}

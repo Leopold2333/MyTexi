@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>司机主页</title>
+        <script src="../static/javascript/http_ajax.aspnetcdn.com_ajax_jquery_jquery-3.5.1.js"></script>
+        <script src="../static/javascript/driverMainJs.js" defer></script>
+    </head>
+    <body>
+        <div>用户ID:<span th:text="${session.loggedId}" id="userId"></span></div>
+        <div>用户名:<span th:text="${session.userName}"></span></div>
+        <div>用户状态:<span id="state" th:text="${session.state}"></span></div>
+        <div>用户信誉:<span th:text="${session.userCredit}"></span></div>
+        <div>所处地区:<input id="region" type="number" value="0"></div>
+        <div><button th:hidden="0 != ${session.state}" id="active">开始接单</button></div>
+        <div id="orderList"></div>
+        <div><button th:hidden="1 != ${session.state}" id="inactive">结束接单</button></div>
+        <div><button th:hidden="1 != ${session.state}" id="search">查询订单</button></div>
+        <div th:hidden="2 != ${session.state}" id="verifyDiv">
+            验证码<input id="verifyCode" number><button id="verify">提交</button>
+        </div>
+        <div th:hidden="3 != ${session.state}" id="costDiv">
+            费用<input id="cost" number min="0"><button id="putCost">提交</button>
+        </div>
+        <div><button id="quit">退出</button></div>
+    </body>
+</html>
